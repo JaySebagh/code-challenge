@@ -11,5 +11,10 @@
 // '!skcor SC'
 
 function reverseString(str) {
-
+    // Separate each letter using split(""), reverse the order using reverse(), reconnect the letters using join("").
+    return str.split("").reverse().join("");
 }
+
+const answer = reverseString("hello world");
+
+console.log(answer)
