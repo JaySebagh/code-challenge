@@ -10,3 +10,23 @@
 
 // DNAStrand ("GTAT") // return "CATA" 
 
+function DNAStrand(dna){
+    // make empty string
+    let newText = '';
+    // for loop based off the dna length
+    for (let i = 0; i < dna.length; i++){
+    // if the letter matches A, add letter T to newText
+      if(dna[i] === 'A'){
+      newText += 'T'};
+    // if the letter matches T, add letter A to newText 
+      if(dna[i] === 'T'){
+      newText += 'A'};
+    // if the letter matches C, add letter G to newText
+      if(dna[i] === 'C'){
+      newText += 'G'};
+    // if the letter matches G, add letter C to newText 
+      if(dna[i] === 'G'){
+      newText += 'C'};
+    }
+    return newText;
+  }
