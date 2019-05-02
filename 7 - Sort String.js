@@ -11,5 +11,11 @@
 // 'AABCabcwxyz'
 
 function sortString(str) {
-
+    // take the string and split it into an array
+    // sort the array
+    // take the array and join it into a string
+    return str.split("").sort().join("")
 }
+  
+const answer = sortString('dcba')
+console.log(answer)
