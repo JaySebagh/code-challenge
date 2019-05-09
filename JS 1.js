@@ -28,3 +28,12 @@ let lastname = nameArray[nameArray.length - 1]
 console.log(lastname)
 
 // slash in the name allows the apostrophe
+
+
+const adjectiveArray = [ 'awesome', 'fantastic', 'amazing', 'wonderful', 'fabulous', 'incredible', 'marvelous' ];
+// Using both nameArray and adjectiveArray, make a
+// "for" loop that console.log()'s a sentence for each
+// corresponding value in the arrays. Use the string "is"
+// to combine the name with the adjective. For example:
+// "Jacquelynn is awesome"
+// "Csaba is fantastic" et cetera...
