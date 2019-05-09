@@ -16,3 +16,10 @@ for(let i = 0; i < unimaginativeArray.length; i += 3) {
 }
 
 console.log(nums)
+
+const nameArray = [ 'Jacquelynn', 'Csaba', 'Ellen', 'Moises', 'Cole', 'Jeff', 'Dre\'Sean' ];
+// Write a console.log() that displays the last value in
+// nameArray. Use the `.length` property of array's
+// to access the last value. What's going on with that
+// slash in Dre'Sean's name?
+
