@@ -23,3 +23,8 @@ const nameArray = [ 'Jacquelynn', 'Csaba', 'Ellen', 'Moises', 'Cole', 'Jeff', 'D
 // to access the last value. What's going on with that
 // slash in Dre'Sean's name?
 
+let lastname = nameArray[nameArray.length - 1]
+
+console.log(lastname)
+
+// slash in the name allows the apostrophe
