@@ -37,3 +37,18 @@ const adjectiveArray = [ 'awesome', 'fantastic', 'amazing', 'wonderful', 'fabulo
 // to combine the name with the adjective. For example:
 // "Jacquelynn is awesome"
 // "Csaba is fantastic" et cetera...
+
+// empty string
+let phrase = ""
+// loop over nameArray length
+for (let i = 0; i < nameArray.length; i ++) {
+// concat arrays
+    phrase += `${nameArray[i]} is ${adjectiveArray[i]}\n`
+}
+
+console.log(phrase)
+
+// Write a "for" loop that console.log()'s every third
+// number in unimaginativeArray but initialize the
+// iterator so it doesn't console.log() the zero.
+
