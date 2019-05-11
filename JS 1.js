@@ -52,3 +52,8 @@ console.log(phrase)
 // number in unimaginativeArray but initialize the
 // iterator so it doesn't console.log() the zero.
 
+// for loop based off unimaginativeArray's length, starting at 3 to skip 0, and incrementing by 3
+for (let i = 3; i < unimaginativeArray.length; i += 3) {
+// console log the number at that position
+  console.log(unimaginativeArray[i]);
+}
