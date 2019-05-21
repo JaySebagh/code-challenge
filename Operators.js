@@ -29,11 +29,7 @@
 
 
 function negCheck (num1, num2) {
-  if(Math.sign(num1) === -1 || Math.sign(num2) === -1){
-    return "true"
-  } else {
-    return "false"
-  }
+
 }
 
 function multiply(x, y) {
