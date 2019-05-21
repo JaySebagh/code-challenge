@@ -37,7 +37,7 @@ function negCheck (num1, num2) {
 }
 
 function multiply(x, y) {
-
+  return ("i").repeat(x).repeat(y).length 
 }
 
 function divide(x, y) {
