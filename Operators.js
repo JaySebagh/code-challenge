@@ -41,7 +41,30 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-
+  division = 0;
+  numX = x;
+  numY = y;
+  
+  if(Math.sign(x) === -1){
+    numX = Math.abs(x)
+  }
+  
+  if(Math.sign(y) === -1){
+    numY = Math.abs(y)
+  }
+  
+  for (let i = 0; numX > numY; i++) {
+    division++;
+    numX = numX - numY;
+  }
+  
+  if(Math.sign(x) === -1 && Math.sign(y) === -1){
+    return division;
+  } else if(Math.sign(x) === -1 || Math.sign(y) === -1) {
+    return -Math.abs(division);
+  } else {
+    return division;
+  }
 }
 
 function modulo(x, y) {
