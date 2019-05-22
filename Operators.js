@@ -69,13 +69,27 @@ function divide(x, y) {
 
 function modulo(x, y) {
   const arr = negCheck(x, y);
+  let numX = x;
+  let numY = y;
+  
+  if(Math.sign(x) === -1){
+    numX = Math.abs(x)
+  }
+  
+  if(Math.sign(y) === -1){
+    numY = Math.abs(y)
+  }
   
   const arr = negCheck(x, y);
-  const counter =  divide(x, y);
+  const counter =  divide(numX, numY);
 
-  const integer = multiply(y, counter);
+  const integer = multiply(numY, counter);
 
-  const remainder = x - integer
+  const remainder = numX - integer
 
-  return remainder;
+  if(Math.sign(x) === -1 || Math.sign(y) === -1){
+    return -Math.abs(remainder)
+  } else {
+    return remainder;
+  }
 }
