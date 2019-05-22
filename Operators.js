@@ -70,4 +70,12 @@ function divide(x, y) {
 function modulo(x, y) {
   const arr = negCheck(x, y);
   
+  const arr = negCheck(x, y);
+  const counter =  divide(x, y);
+
+  const integer = multiply(y, counter);
+
+  const remainder = x - integer
+
+  return remainder;
 }
