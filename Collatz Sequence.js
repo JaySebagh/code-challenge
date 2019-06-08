@@ -23,5 +23,28 @@
 // [ 23, 70, 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1 ]
 
 function collatzSequence(n) {
-
+// let currentNum be equal to the number passed in
+    let currentNum = n;
+// let csArr be an array that starts with the number passed in
+    let csArr = [n]
+// for loop as long as currentNum is greater than 1
+    for(let i = 0; currentNum > 1; i++){
+// check if currentNum is even
+      if(currentNum%2 === 0) {
+// if currentNum is even, divide it by 2
+        currentNum = currentNum/2
+// and push currentNum to csArr array
+        csArr.push(currentNum)
+      } else {
+// if currentNum is odd, multiply it by 3 and add 1
+        currentNum = currentNum*3+1
+// and push currentNum to csArr
+        csArr.push(currentNum)
+      }
+    }
+// return csArr array once finished
+    return csArr;
 }
+  
+  const answer = collatzSequence(23);
+  console.log(answer);
