@@ -9,5 +9,12 @@
 // addUp(600) ➞ 180300
 
 function addUp(num) {
-	
+  let numArr = [];
+  for(let i = 1; i < num + 1; i++){
+    numArr.push(i);
+  }
+  return numArr.reduce((a, b) => a + b)
 }
+
+const answer = addUp(10);
+console.log(answer)
