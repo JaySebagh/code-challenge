@@ -7,5 +7,15 @@
 // kToK(17, 3) ➞ false
 
 function kToK(n, k) {
-
-}
+    // if else statement that returns true or false
+    if(n === Math.pow(k, k)){
+      return true
+    } else {
+      return false
+    }
+    // calculate k to the power of k
+    // check if it's equal to n -> return true else false
+  }
+  
+  const answer = kToK(387420489, 9);
+  console.log(answer);
