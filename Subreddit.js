@@ -6,7 +6,7 @@
 // subReddit("https://www.reddit.com/r/reactjs/") ➞ "reactjs"
 
 function subReddit(link) {
-
+    return link.slice(link.indexOf("/r/") + 3, link.length - 1)
 }
 
 const answer = subReddit("https://www.reddit.com/r/programmerhumor/");
