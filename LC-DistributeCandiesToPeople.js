@@ -1,3 +1,6 @@
+// DOES NOT PASS ALL TEST CASES (80, 5), NEED A BREAK.
+
+
 // We distribute some number of candies, to a row of n = num_people people in the following way:
 
 // We then give 1 candy to the first person, 2 candies to the second person, and so on until we give n candies to the last person.
@@ -28,5 +31,48 @@
 // On the fourth turn, ans[0] += 4, and the final array is [5,2,3].
 
 function distributeCandies(candies, num_people) {
+    // create an array of zeros based off num_people
+    // loop through the array, giving incremental candies to each person
+    // each time we give out some candy, substract that value from candies
+        // if we reach 0 or less candies, give the remaining candies to the person
+    // while candies is not none, loop over the array giving n + incremental
+  
+      let zeroArr = []
+    for(let i = 0; i < num_people; i++){
+      zeroArr.push(0)
+    }
+    let counter = 0
+    
+    for(let i = 0; i < candies; i++){
+        if(candies <= counter + 1){
+          if(zeroArr.length === num_people){
+            zeroArr[i] = zeroArr[i] + candies
+            candies = 0
+          }
+        } else {
+            if(i === num_people - 1){
+                counter += 1
+                zeroArr[i] = zeroArr[i] + counter
+                candies -= counter
+                i = -1
+            } else {
+              counter += 1
+              zeroArr[i] = zeroArr[i] + counter
+              candies -= counter
+            }
+    }
+  }
+  if(candies > 0){
+    zeroArr.push(candies)
+  }
 
+  let distributed = []
+
+  for(let i = 0; i < zeroArr.length; i++){
+    if(zeroArr[i] != 0){
+      distributed.push(zeroArr[i])
+    }
+  }
+
+  return distributed
 }
