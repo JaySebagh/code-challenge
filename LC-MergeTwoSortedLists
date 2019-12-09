@@ -7,5 +7,51 @@
 
 
 var mergeTwoLists = function(l1, l2) {
-
+    // two variables that hold l1, l2
+    let currl1 = l1;
+    let currl2 = l2;
+    
+    // variable to hold numbers in old
+    let merged = []
+    
+    // while the next value in the lists is not none
+    while(currl1.next || currl2.next) {
+        // if l1 is less than l2, push l1 and change it to next
+        if(currl1.val <= currl2.val){
+            merged.push(currl1.val)
+            currl1 = currl1.next
+        // if l1 === l2, push both and change them to next
+        } else if(currl1 === currl2) {
+            merged.push(currl1.val)
+            merged.push(currl2.val)
+            currl1 = currl1.next
+            currl2 = currl2.next
+        // if l1 is greater than l2, push l2 and change it to next
+        } else {
+            merged.push(currl2.val)
+            currl2 = currl2.next
+        }
+    }
+    
+    // the above loop is lacking the last nodes, so the if condition below does the same thing for the last node
+    if(currl1.val < currl2.val){
+        merged.push(currl1.val)
+        merged.push(currl2.val)
+    } else {
+        merged.push(currl2.val)
+        merged.push(currl1.val)
+    }
+    
+    // add the array to a LinkedList and return it
+    const l3 = new ListNode(merged[0])
+    let head = l3
+    let current = head
+    
+    for(let i = 1; i < merged.length; i++){
+        current.next = new ListNode(merged[i])
+        head = current.next
+        current = head
+    }
+    
+    return l3
 };
