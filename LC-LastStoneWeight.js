@@ -17,6 +17,35 @@
 // we combine 2 and 1 to get 1 so the array converts to [1,1,1] then,
 // we combine 1 and 1 to get 0 so the array converts to [1] then that's the value of last stone.
 
-var lastStoneWeight = function(stones) {
 
+
+// sort the array of stones
+// reverse it so it's largest to smallest weights
+// if the first two are equal weights, remove them from the array
+// if they aren't equal, push the substraction of [0] and [1] then remove from array
+
+var lastStoneWeight = function(stones) {
+    // variable holding input array
+    let sorted = stones
+    // variables x and y to make it easier to read
+    let x = 0
+    let y = 0
+    // while we have more than one stone in the array, loop
+    while(stones.length > 1){
+        // sort the array and reverse it, .sort() itself doesn't work because of the way javascript handles number sorting.
+        sorted.sort(function(a,b){return a - b}).reverse()
+        // set x and y to be the 2nd and 1st numbers
+        x = sorted[1]
+        y = sorted[0]
+        // if x is equal to y, remove them
+        if(x === y){
+            sorted.splice(0, 2)
+        // if not, push y-x then remove y and x
+        } else {
+            sorted.push(y - x)
+            sorted.splice(0,2);
+        }
+    }
+    // return last stone weight
+    return sorted
 }
