@@ -25,5 +25,42 @@
 // Explanation: 4 boats (3), (3), (4), (5)
 
 var numRescueBoats = function(people, limit) {
+    // loop through the array, check if people[0] + people[i] <= limit
+        // if it's less than, remove them from the array and increment a counter by 1
+        // if it isn't, remove from array and increment a counter by 1
+    
+    let counter = 0;
 
+    for(let i = 1; people.length > 0; i++){
+        // if the first one === limit, remove it and increment counter
+        if(people[0] === limit){
+            people.shift()
+            counter += 1
+        }
+        // if there's only one person left, remove them and increment counter
+        if(people.length === 1){
+            counter += 1
+            break
+        }
+        // if the first one + [i] is less than or equal to limit, remove them and increment counter
+        if(people[0] + people[i] <= limit){
+            counter += 1;
+            people.splice(0, 1);
+            people.splice(i-1, i);
+        } else {
+            // else condition for cases where [0] is not compatible with any other weights, remove it.
+            let weightMatch = false
+            for(let j = 2; j < people.length; j++){
+                if(people[0] + people[j] < limit){
+                    weightMatch = true
+                }
+            }
+            if(weightMatch === false){
+                people.shift()
+                counter += 1
+            }
+        }
+    }
+    
+    return counter
 }
