@@ -1,0 +1,41 @@
+var backspaceCompare = function(S, T) {
+    S = S.split("")
+    T = T.split("")
+
+    for(let i = 0; i < S.length; i++){
+      if(S[i] === "#" && i === 0){
+        S.splice(i, 1)
+      }
+      if(S[i] === "#"){
+        S.splice(i-1, 2)
+        i = -1
+      }
+    }
+
+    for(let j = 0; j < T.length; j++){
+      if(T[j] === "#" && j === 0){
+        T.splice(j, 1)
+      }
+      if(T[j] === "#"){
+          T.splice(j-1, 2)
+          j = -1
+      }
+    }
+    
+    S = S.join("")
+    T = T.join("")
+    
+    if(S === T){
+      return true
+    } else {
+      return false
+    }
+};
+
+// For some reason backspaceCompare("j##xfix", "j###xfix") fails.
+// Unsure why, but it removes the 'x' at the end, but works fine for the other times...
+
+// [ 'j', '#', '#', '#', 'x', 'f', 'i', 'x' ]
+// [ '#', '#', 'x', 'f', 'i', 'x' ]
+// [ '#', 'x', 'f', 'i' ]
+// [ 'x', 'f', 'i' ]
