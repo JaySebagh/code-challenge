@@ -7,5 +7,16 @@
 // Return a reference to the head node of the reversed list.
 
 function reverse(head) {
+    let current = head;
+    let prev = null;
 
+    while(current){
+        let next = current.next;
+        current.next = prev;
+        current.prev = next;
+        prev = current;
+        current = next;
+    }
+    head = prev;
+    return head
 }
