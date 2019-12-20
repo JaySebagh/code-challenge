@@ -52,5 +52,24 @@
 
 
 function makeAnagrams(a b) {
-
+  // take the two strings and sort them
+  // maybe use set method in order to find whats in common, whatever is
+  //left is what we need to delete
+  // return the sum of whatever is left
+  let aArr = a.split("")
+  let bArr = b.split("")
+  // let notCommon = aArr.filter(letter =>
+  !bArr.includes(letter)).concat(bArr.filter(letter =>
+  !aArr.includes(letter)));
+  // return notCommon.length
+  for(let i = 0; i < aArr.length; i++){
+   if(bArr.includes(aArr[i])){
+     let index = bArr.indexOf(aArr[i]);
+     aArr.splice(i, 1);
+     bArr.splice(index, 1)
+     i -= 1
+   }
+  }
+  let arrSum = aArr.length + bArr.length
+  return arrSum
 }
