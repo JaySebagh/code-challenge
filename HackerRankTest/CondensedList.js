@@ -28,5 +28,17 @@
  */
  
 function condense(head) {
-
+ let visitedValues = [head.data]
+ let prev = head;
+ let current = prev.next
+ while(current){
+  if(visitedValues.includes(current.data)){
+   prev.next = current.next;
+  } else {
+   visitedValues.push(current.data);
+   prev = current
+  }
+  current = current.next
+ }
 }
+return head
