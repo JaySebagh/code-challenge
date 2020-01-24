@@ -3,5 +3,44 @@
 // Given a sequence of words written in the alien language, and the order of the alphabet, return true if and only if the given words are sorted lexicographicaly in this alien language.
 
 let isAlienSorted = function(words, order) {
+    let beforeIndex;
+    let afterIndex;
+    let currentIndex = 0;
+    
+    for(let i = 0; i < words.length; i++){
+        if(words[i].startsWith(words[i + 1])){
+            return false;
+            break;
+        }
+        console.log(words[i], words[i + 1])
+        let mainLetter = words[i][currentIndex]
+        let otherLetter = words[i + 1][currentIndex]
+        if(mainLetter !== otherLetter){
+            beforeIndex = order.indexOf(mainLetter);
+            afterIndex = order.indexOf(otherLetter);
+            console.log(beforeIndex, afterIndex)
+            if(beforeIndex > afterIndex){
+                return false;
+                break;
+            }
+            // else {
+            //     return true;
+            //     break;
+            // }
+        } else {
+            currentIndex++;
+            i = 0;
+        }
+    }
+    return true
+};
 
-}
+console.log(isAlienSorted(["fxasxpc","dfbdrifhp","nwzgs","cmwqriv","ebulyfyve","miracx","sxckdwzv","dtijzluhts","wwbmnge","qmjwymmyox"],"zkgwaverfimqxbnctdplsjyohu"))
+
+// console.log(isAlienSorted(["hello","leetcode"],"hlabcdefgijkmnopqrstuvwxyz"))
+
+
+
+// not fully functional
+// test case 1 works if else block is commented
+// test case 2 works if else block is uncommented
