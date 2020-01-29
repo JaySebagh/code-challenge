@@ -37,3 +37,29 @@ let maxNumberOfBalloons = function(text) {
     // return the frequency count of balloons
     return balloonCount
 }
+
+
+________________________________________________________________________________________________________________________
+
+Other people's solutions:
+
+const maxNumberOfBalloons = text => {
+  let obj = {}, balloonCount = 0;
+  for (let el of text) {
+    obj[el] = (obj[el] || 0) + 1;
+  }
+  while (obj['a'] > 0 && obj['b'] >0 && obj['l']>1 && obj['n']>0 && obj['o']>1) {
+    balloonCount++;
+    obj['a']--;
+    obj['b']--;
+    obj['l'] -= 2;
+    obj['n']--;
+    obj['o'] -= 2;
+  }
+  return balloonCount;
+}
+
+// Did not think of this. Actually like the idea.
+// They take the text and store the frequency of each letter in an object.
+// The while loop checks if we have at least 1 count of single letters (b,a,n) and 2 counts of double letters (l,o).
+// If it does, it increments the counter and removes the letters.
