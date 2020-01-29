@@ -3,5 +3,37 @@
 // You can use each character in text at most once. Return the maximum number of instances that can be formed.
 
 let maxNumberOfBalloons = function(text) {
-
+    // split the input text into an array
+    let phrase = text.split('')
+    // letters variable holds all the letters of the word 'balloon' to check for
+    let letters = [ 'b', 'a', 'l', 'l', 'o', 'o', 'n' ]
+    // condition for loop
+    let loop = true
+    // frequency counter
+    let balloonCount = 0
+    
+    // loop while variable is true
+    for(let i = 0; loop === true; i++){
+        // check if the phrase includes the letter
+        if(phrase.includes(letters[i])){
+            // if it does, check if the current letter is n
+            if(letters[i] === 'n'){
+                // if it is, remove the letter from the phrase and increment the frequency counter
+                let index = phrase.indexOf(letters[i])
+                phrase.splice(index, 1);
+                balloonCount++
+                i = 0;
+            } else {
+                // if it's a different letter, only remove the letter from the phrase
+                let index = phrase.indexOf(letters[i])
+                phrase.splice(index, 1);
+            }
+        // if the phrase does not include the letter, then there cannot be another instance of the word 'balloon'
+        } else {
+            // break the loop
+            loop = false
+        }
+    }
+    // return the frequency count of balloons
+    return balloonCount
 }
