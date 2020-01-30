@@ -1,5 +1,52 @@
 // Given an array of strings, group anagrams together.
 
 let groupAnagrams = function(strs) {
-
+    // create a new array that sorts the words in the array but keeps them at the same index
+    // find all sorted words that are matching
+        // group all matching words together
+    
+    let map = {}
+    let sorted = []
+    
+    // sort the letters in each word
+    for(i in strs){
+        sorted.push(strs[i].split('').sort().join(''))
+    }
+    
+    // add matching sorted words to map object
+    for(i in sorted){
+        map[sorted[i]] ? map[sorted[i]].push(i) : map[sorted[i]] = [i]
+    }
+    
+    // get all the grouped positions
+    let positions = Object.values(map)
+    
+    // convert indexes to actual words
+    for(let i = 0; i < positions.length; i++){
+        for(let j = 0; j < positions[i].length; j++){
+            positions[i][j] = strs[positions[i][j]]
+        }
+    }
+    
+    return positions
 }
+
+Other people's solutions:
+
+// basically what I wanted to do but much cleaner and far less loops...
+
+const groupAnagrams = strs => {
+    const map = {};
+    
+    for (let str of strs) {
+        const key = [...str].sort().join('');
+
+        if (!map[key]) {
+            map[key] = [];
+        }
+
+        map[key].push(str);
+    }
+    
+    return Object.values(map);
+};
