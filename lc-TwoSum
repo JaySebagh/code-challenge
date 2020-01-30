@@ -8,5 +8,55 @@
 // return [0, 1].
 
 let twoSum = function(nums, target) {
+    // Initially the code I wrote felt clean until I ran into test case issues. Code works, but could be improved.
 
-}
+
+    // substract a nums array number from the target number
+    // search the nums array for the substracted value
+    // return their positions
+
+    let sub;
+    let pair = [];
+    
+    for(let i = 0; i < nums.length; i++){
+        // using substraction in order to find the 2nd number
+        sub = target - nums[i];  
+        // in case the substracted number happens to be the same as the initial number
+        // we remove the initial number and search for the sub number
+        let modded = nums
+        let removed = delete modded[i];
+        if(nums[i] === sub && removed.includes(sub)){
+          pair.push(i, removed.indexOf(sub))
+          break;
+        }
+        // if it includes the sub number, return the positions
+        if(nums.includes(sub)){
+            pair.push(i, nums.indexOf(sub))
+            break;
+        }
+    }
+    return pair
+};
+
+
+Other people's solutions:
+This method is definitively a lot cleaner
+It also takes care of the issue I had with my code that caused it to become slower
+
+const twoSum = (nums, target) => {
+  const map = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    // substraction
+    const another = target - nums[i];
+    // check if substraction is in object
+    if (another in map) {
+      // return the positions
+      return [map[another], i];
+    }
+    // if not, add it to the object
+    map[nums[i]] = i;
+  }
+
+  return null;
+};
