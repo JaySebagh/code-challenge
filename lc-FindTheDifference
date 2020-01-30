@@ -5,5 +5,40 @@
 // Find the letter that was added in `t`.
 
 let findTheDifference = function(s, t) {
-
+    let map = {}
+    
+    // split the strings into arrays
+    let sArr = s.split('')
+    let tArr = t.split('')
+    
+    // count frequencies in 't' array
+    for(i in t){
+        map[t[i]] = map[t[i]] ? map[t[i]] + 1 : 1
+    }
+    
+    // substract 's' frequencies from 't'
+    for(i in s){
+        map[s[i]]--
+    }
+    
+    // find the key with the value of 1
+    return Object.keys(map).find(key => map[key] === 1)
 }
+
+Other people's solution:
+
+// initially similar to what I originally thought of
+
+let findTheDifference = function(s, t) {
+    // split strings into arrays and sort
+    let sArr = s.split('');
+    let tArr = t.split('');
+    
+    sArr.sort();
+    tArr.sort();
+    
+    // if the letters at the index do not match, return that letter
+    for (let i = 0; i < t.length; i++) {
+        if (tArr[i] !== sArr[i]) return tArr[i];
+    } 
+};
