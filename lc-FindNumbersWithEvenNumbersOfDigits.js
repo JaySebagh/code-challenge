@@ -13,5 +13,22 @@
 // Therefore only 12 and 7896 contain an even number of digits.
 
 let findNumbers = function(nums) {
-
+    // convert array by checking if divisible by 2
+    // return amount that is divisible by 2
+    
+    let counter = 0;
+    
+    for(i in nums){
+        if(nums[i].toString().length % 2 == 0) counter++
+    }
+    
+    return counter
 }
+
+_________________________________________________________________________________
+
+Other people's solutions:
+
+let findNumbers = function(nums) {
+    return nums.filter(num => num.toString().length % 2 == 0).length;
+};
