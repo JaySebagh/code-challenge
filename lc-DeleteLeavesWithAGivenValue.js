@@ -4,5 +4,11 @@
 // it should also be deleted (you need to continue doing that until you can't).
 
 let removeLeafNodes = function(root, target) {
-
+    if(!root) return null;
+    root.left = removeLeafNodes(root.left, target);
+    root.right = removeLeafNodes(root.right, target);
+    
+    if(root.val === target && root.left === null && root.right == null) return null
+    
+    return root
 }
