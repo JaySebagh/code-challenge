@@ -6,5 +6,21 @@
 // always ones may appear first and then zeros.
 
 const kWeakestRows = function(mat, k) {
-
+    // count soldiers in each row
+    const soldierCount = mat.map(row => row.reduce((a, b) => a + b))
+    // sort count
+    const sortedSoldiers = [...soldierCount].sort((a, b) => a - b).splice(0, k)
+    // array that will hold k weakest soldiers
+    let weak = []
+    
+    for(i in sortedSoldiers){
+        // find the row that corresponds to the amount of soldiers
+        const index = soldierCount.indexOf(sortedSoldiers[i])
+        // push the row's index
+        weak.push(index)
+        // replace the value of the row to avoid repeats
+        soldierCount[index] = "x"
+    }
+    
+    return weak
 }
