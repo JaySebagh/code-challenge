@@ -5,5 +5,13 @@
 // Your goal is to maximize the number of your content children and output the maximum number. 
 
 let findContentChildren = function(greed, size) {
-
+    greed.sort((a, b) => a - b);
+    size.sort((a, b) => a - b);
+    let counter = 0;
+    
+    size.forEach(cookie => {
+        if(cookie >= greed[counter]) counter++
+    });
+    
+    return counter;
 };
