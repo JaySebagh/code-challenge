@@ -1,6 +1,8 @@
 // Given a string s consisting only of characters a, b and c.
 // Return the number of substrings containing at least one occurrence of all these characters a, b and c.
 
+// INCOMPLETE
+
 const numberOfSubstrings = function(string) {
     // loop through the string and keep searching till a, b, and c are found
     // if found, return substring and all other substrings
