@@ -3,5 +3,30 @@
 // The binary search tree is guaranteed to have unique values.
 
 let rangeSumBST = function(root, leftRange, rightRange) {
-
+    // traverse the binary tree using DFS in order
+    // return addition of subarray values between leftRange and rightRange
+    
+    let visited = [];
+    // left and right index of array to know where to slice without having to search
+    let leftIndex;
+    let rightIndex;
+    let current = this.root;
+    
+    let traverse = node => {
+        if(node.left) traverse(node.left);
+        visited.push(node.val);
+        // if the node val matches our left or right index, we store the visited array's length,
+        // as that is the position where the value will be in our array.
+        // -1 is needed since we want to include the leftRange value
+        if(node.val === leftRange) leftIndex = visited.length - 1
+        if(node.val === rightRange) rightIndex = visited.length
+        if(node.right) traverse(node.right);
+    }
+    
+    traverse(root);
+    
+    const subVisitedArr = visited.slice(leftIndex, rightIndex)
+    const sumOfRange = subVisitedArr.reduce((a, b) => a + b)
+    
+    return sumOfRange
 }
