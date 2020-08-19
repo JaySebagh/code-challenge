@@ -1,0 +1,12 @@
+##What’s the difference between const, let, and var?
+
+‘Var’ is accessible in global scopes and function scopes.
+‘let’/’const’ is accessible in global scopes, function scopes, and block scopes.
+
+If you define ‘var’ inside a function, you cannot access it outside; however, if you define ‘var’ inside a block scope (such as a for loop) you can access it outside.
+
+If you define ‘let’ or ‘const’ inside a function or block scope, it will not be accessible outside. 
+
+‘const’ is like ‘let’, except it cannot be updated.
+
+‘var’ is no longer widely used.
