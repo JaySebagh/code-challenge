@@ -1,0 +1,52 @@
+White Board Exercise
+What will be printed if you run the following code? Why?
+
+----------------------------------------
+var counter = 1;
+
+function outerCounter(){
+    counter++;
+    var counter = 2;
+  
+    function innerCounter(){
+        counter++;
+        var counter = 3;
+        console.log(counter);
+    }
+    
+    innerCounter();
+}
+
+outerCounter();
+----------------------------------------
+
+
+
+What about if we remove the variable declarations inside the functions? Why?
+
+----------------------------------------
+var counter = 1;
+
+function outerCounter(){
+    counter++;
+    
+    function innerCounter(){
+        counter++;
+        console.log(counter);
+    }
+    
+    innerCounter();
+}
+
+outerCounter();
+----------------------------------------
+
+1) It would return 3.
+We call outerCounter that calls innerCounter which updates the global counter variable with 3 and console logs it.
+Inside outerCounter, 'counter++' would update the global variable to 2. 'var counter' would update the global counter to 2.
+Inside the innerCounter, 'counter++' would increment the global counter to 3. 'var counter' would update the global variable to 3.
+Having both 'counter++' and 'var counter' is redundant as the latter would always replace the former in this order.
+
+2) It would return 3. 
+'var' has a functional and global scope. The variable can be accessed within functions.
+If 'innerCounter' was outside of 'outerCounter' and the global 'counter' variable was inside 'outerCounter', it would throw error saying that 'counter' is not defined.
