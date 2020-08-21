@@ -1,0 +1,22 @@
+White Board Exercise
+What will be printed if you run this? Why?
+
+
+function test() {
+   console.log(a);
+   console.log(foo());
+   
+   var a = 1;
+   function foo() {
+      return 2;
+   }
+}
+
+test();
+
+------------------------------------
+
+The first console.log would return ‘undefined’. Variables declared with var and that are called before they are defined get hoisted, initialized, and assigned undefined.
+
+The second console.log would return ‘2’. Function declarations are hoisted and available to the entire scope.
+If it was a function expression, const foo = function(), it would return a reference initialization error.
