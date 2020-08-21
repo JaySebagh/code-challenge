@@ -1,0 +1,32 @@
+White Board Exercise
+What will be printed if you run the following code?
+How would you fix it to work correctly (add 2 to x and print it)
+
+
+var  x = 21;
+function addTwo() {
+    console.log(x);
+    var x = x + 2;
+};
+addTwo();
+
+----------------------------------------
+If you run the code you would get undefined because 'var' variables get hoisted, initialized, and assigned undefined if declared after.
+
+Fix solution:
+var  x = 21;
+function addTwo(num) {
+    var x = num + 2;
+    console.log(x);
+};
+addTwo(x);
+
+First, you would need to place the console.log after the declaration.
+Then you would need to pass in the variable 'x' into the function and change the variable inside the function to 'num'. Alternatively, you can modify the variable name inside the function. 'x' is a variable that is globally available. The function will look outside the function scope to search for the global variable.
+
+var  x = 21;
+function addTwo() {
+    var y = x + 2;
+    console.log(y);
+};
+addTwo();
