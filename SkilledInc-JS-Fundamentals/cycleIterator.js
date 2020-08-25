@@ -6,7 +6,20 @@
 // and continue on with the second after that, and so forth.
 
 function cycleIterator(input) {
-
+  let peopleCount = input.length
+  let personPosition = -1
+  function cycle(){
+    if(peopleCount !== 0){
+      peopleCount--
+      personPosition++
+      console.log(input[personPosition])
+    } else {
+      peopleCount = input.length - 1
+      personPosition = 0
+      console.log(input[personPosition])
+    }
+  }
+  return cycle
 }
 
 
@@ -17,3 +30,9 @@ myFunc(); // prints Jane
 myFunc(); // prints David
 myFunc(); // prints John
 myFunc(); // prints Mary
+myFunc(); // prints Jane
+myFunc(); // prints David
+myFunc(); // prints John
+myFunc(); // prints Mary
+myFunc(); // prints Jane
+myFunc(); // prints David
