@@ -4,7 +4,18 @@
 // and so on, until all names have been called. Once all names have been called, it should log ‘All present’.
 
 function rollCall(namesArray) {
-
+  let peopleCount = namesArray.length
+  let calledPeople = -1
+  function callName(){
+    if(peopleCount !== 0){
+      peopleCount--
+      calledPeople++
+      console.log(namesArray[calledPeople])
+    } else {
+      console.log('All Present')
+    }
+  }
+  return callName
 }
 
 // test setup
