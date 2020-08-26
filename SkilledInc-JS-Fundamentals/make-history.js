@@ -6,7 +6,18 @@
 // history is empty, then the function should return the string 'nothing to undo'.
 
 function makeHistory() {
-
+  let memoryStick = [];
+  function storeHistory(string){
+    if(memoryStick.length === 0 && string === 'undo') return 'nothing to undo';
+    if(string === 'undo'){
+      const remove = memoryStick.pop()
+      remove
+      return `${remove} - undone`
+    }
+    memoryStick.push(string)
+    return `${string} - done`
+  };
+  return storeHistory;
 }
 
 // testing setup
