@@ -6,7 +6,15 @@
 // See function definition and test cases for more clarification
 
 function multiMap(inputArray, actionsArray) {
+  if(inputArray.length !== actionsArray.length) return 'Both arrays must be same length';
 
+  function performAction(elem, action){
+    return action(elem)
+  }
+
+  for(i in inputArray){
+    performAction(inputArray[i], actionsArray[i])
+  }
 }
 
 
