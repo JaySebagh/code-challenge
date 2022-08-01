@@ -18,5 +18,36 @@
 // Output: [3,4,6,16,17]
 
 var runningSum = function(nums) {
+    // loop through array and replace each index with the sum of the previous number
+    // index starts at 1 since the 0th index does not/cannot be modified
+    for(let i = 1; i < nums.length; i++){
+        nums[i] = nums[i] + nums[i-1]
+    }
+    
+    return nums
+};
 
+// other solutions
+const runningSum = nums => {
+    nums.reduce((a,c,i,arr) => arr[i] += a)
+    return nums
+}
+
+// a: accumulator
+// c: current value
+// i: index
+// arr: source array
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+
+const runningSum = ((nums, val = 0) => nums.map(x => val = val + x))
+
+//
+
+var runningSum = function(nums) {
+    let sum = 0
+    for (let i in nums) {
+        sum += nums[i]        
+        nums[i] = sum
+    }
+    return nums
 };
