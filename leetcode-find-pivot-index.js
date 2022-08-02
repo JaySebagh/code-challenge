@@ -25,6 +25,17 @@
 // Left sum = 0 (no elements to the left of index 0)
 // Right sum = nums[1] + nums[2] = 1 + -1 = 0
 
-const pivotIndex = function(nums) {
 
+// other solutions
+const pivotIndex = function(nums) {
+    const sum = nums.reduce((a, b) => a + b, 0);
+    let leftSide = 0;
+    for (let i = 0; i < nums.length; i++) {
+        const rightSide = sum - leftSide - nums[i];
+        if (leftSide === rightSide) {
+            return i;
+        }
+        leftSide += nums[i];
+    }
+    return -1;
 }
