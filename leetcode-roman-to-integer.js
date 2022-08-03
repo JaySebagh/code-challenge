@@ -19,6 +19,71 @@
 
 // Given a roman numeral, convert it to an integer.
 
-const romanToInt = function(string) {
+// brainstorm
+    // loop through the roman numeral
+    // convert each symbol into the corresponding value
+    // check both the current and next symbol to see if substraction is necessary
+    // calculate the sum
 
+
+// non functional/incomplete
+const romanToInt = function(string) {
+    const values = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000,
+    };
+    
+    let conversionArr = [0];
+
+    for (i in string){
+        const key = string.charAt(i);
+        conversionArr.push(values[key])
+    }
+
+    let mathConversion = conversionArr.reduce((a, b, c, d) => {
+            let calculation = a;
+            if(d[c + 1] > b){
+                console.log(d[c + 1] - b)
+                const sub = d[c + 1] - b
+                a + sub
+            } else {
+                console.log(a+b)
+                a + b
+            }
+            // return calculation
+            // console.log(calculation, "here")
+        }
+    );
+
+    console.log(mathConversion)
 };
+
+console.log(romanToInt("XIV"))
+
+// other solutions
+symbols = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000
+};
+
+const romanToInt = function(string) {
+    value = 0;
+    for(let i = 0; i < string.length-1; i++){
+        // if current number is smaller than the next value, subtract, else add
+        symbols[string[i]] < symbols[string[i+1]] ? value -= symbols[string[i]]: value += symbols[string[i]]
+    }
+    // add the last number of the string to the value since there is no additional numbers after
+    return value + symbols[string[string.length-1]];
+};
+
+console.log(romanToInt("XXIV"))
